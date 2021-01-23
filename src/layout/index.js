@@ -1,38 +1,40 @@
 import { useHistory } from "react-router-dom";
 import { Layout as AntLayout, Menu } from "antd";
 import { path } from "../route";
-
-const { Header, Content } = AntLayout;
-const Layout = ({ children }) => {
+import { getUrlKey } from "../utils";
+const { Header, Content, Footer } = AntLayout;
+const Layout = ({ children, selectedKey }) => {
   const history = useHistory();
   const onClickMenu = ({ key }) => {
-    history.push(key);
+    history.push(path[key]);
   };
   return (
-    <div>
-      <AntLayout className="layout">
-        <Header>
-          <div className="logo" />
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={["2"]}
-            onClick={(e) => onClickMenu(e)}
-          >
-            <Menu.Item key="">1</Menu.Item>
-            <Menu.Item key={path.home}>Home</Menu.Item>
-            <Menu.Item key="3">nav 3</Menu.Item>
-          </Menu>
-        </Header>
-        <Content style={{ padding: "0 50px" }}>
+    <AntLayout className="layout">
+      <Header>
+        <div className="logo" />
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          selectedKeys={getUrlKey(selectedKey)}
+          onClick={(e) => onClickMenu(e)}
+        >
+          <Menu.Item key={getUrlKey(path.home)}>หน้าแรก</Menu.Item>
+          <Menu.Item key={getUrlKey(path.tour)}>nav</Menu.Item>
+          <Menu.Item key="3">nav 3</Menu.Item>
+        </Menu>
+      </Header>
+      <Content style={{ padding: "25px 50px" }}>
+        <div
+          className="site-layout-content"
+          style={{ padding: 40, minHeight: 1200 }}
+        >
           {children}
-          <div className="site-layout-content">Content</div>
-        </Content>
-        {/* <Footer style={{ textAlign: "center" }}>
-          Ant Design ©2018 Created by Ant UED
-        </Footer> */}
-      </AntLayout>
-    </div>
+        </div>
+      </Content>
+      <Footer style={{ textAlign: "center" }}>
+        Ant Design ©2018 Created by Ant UED
+      </Footer>
+    </AntLayout>
   );
 };
 

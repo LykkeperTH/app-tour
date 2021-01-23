@@ -1,10 +1,16 @@
-import HomePage from "../page/home";
+import { TourPage } from "../page";
+import { HomePage } from "../page";
 import { path } from "./path";
 const routes = [
   {
-    path: path.home,
+    path: "/",
     exact: true,
     component: HomePage,
+  },
+  {
+    path: path.tour,
+    exact: true,
+    component: TourPage,
   },
 ];
 const formatRoutes = routes.map((route) => {
