@@ -1,19 +1,9 @@
-import logo from "./logo.svg";
-import { Button } from "antd";
 import "./App.less";
+import { router } from "./route";
+import { renderRoutes } from "react-router-config";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Button type="primary">Button</Button>
-      </header>
-    </div>
-  );
+  return <div>{renderRoutes(router)}</div>;
 }
 
 export default App;
