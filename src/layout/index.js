@@ -7,6 +7,7 @@ const Layout = ({ children, selectedKey }) => {
   const history = useHistory();
   const onClickMenu = ({ key }) => {
     history.push(path[key]);
+    console.log(path[key]);
   };
   return (
     <AntLayout className="layout">
@@ -19,8 +20,8 @@ const Layout = ({ children, selectedKey }) => {
           onClick={(e) => onClickMenu(e)}
         >
           <Menu.Item key={getUrlKey(path.home)}>หน้าแรก</Menu.Item>
-          <Menu.Item key={getUrlKey(path.tour)}>nav</Menu.Item>
-          <Menu.Item key="3">nav 3</Menu.Item>
+          <Menu.Item key={getUrlKey(path.tour)}>ท่องเที่ยว</Menu.Item>
+          {/* <Menu.Item key="3">nav 3</Menu.Item> */}
         </Menu>
       </Header>
       <Content style={{ padding: "25px 50px" }}>
