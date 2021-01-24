@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-import { Layout as AntLayout, Menu } from "antd";
+import { Layout as AntLayout, Menu, Row } from "antd";
 import { path } from "../route";
 import { getUrlKey } from "../utils";
 const { Header, Content, Footer } = AntLayout;
@@ -25,12 +25,14 @@ const Layout = ({ children, selectedKey }) => {
         </Menu>
       </Header>
       <Content style={{ padding: "25px 50px" }}>
-        <div
-          className="site-layout-content"
-          style={{ padding: 40, minHeight: 1200 }}
-        >
-          {children}
-        </div>
+        <Row>
+          <div
+            className="site-layout-content"
+            style={{ padding: 40, minHeight: 360 }}
+          >
+            {children}
+          </div>
+        </Row>
       </Content>
       <Footer style={{ textAlign: "center" }}>
         Ant Design ©2018 Created by Ant UED
