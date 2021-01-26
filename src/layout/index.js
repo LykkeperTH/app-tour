@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-import { Layout as AntLayout, Menu, Row } from "antd";
+import { Layout as AntLayout, Menu } from "antd";
 import { path } from "../route";
 import { getUrlKey } from "../utils";
 const { Header, Content, Footer } = AntLayout;
@@ -21,22 +21,19 @@ const Layout = ({ children, selectedKey }) => {
         >
           <Menu.Item key={getUrlKey(path.home)}>หน้าแรก</Menu.Item>
           <Menu.Item key={getUrlKey(path.tour)}>ท่องเที่ยว</Menu.Item>
-          {/* <Menu.Item key="3">nav 3</Menu.Item> */}
         </Menu>
       </Header>
       <Content style={{ padding: "25px 50px" }}>
-        <Row>
-          <div
-            className="site-layout-content"
-            style={{ padding: 40, minHeight: 360 }}
-          >
-            {children}
-          </div>
-        </Row>
+        <div
+          className="site-layout-content"
+          style={{ padding: 40, minHeight: "100vh" }}
+        >
+          {children}
+        </div>
       </Content>
-      <Footer style={{ textAlign: "center" }}>
+      {/* <Footer style={{ textAlign: "center" }}>
         Ant Design ©2018 Created by Ant UED
-      </Footer>
+      </Footer> */}
     </AntLayout>
   );
 };

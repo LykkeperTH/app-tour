@@ -1,5 +1,4 @@
-import { TourPage } from "../page";
-import { HomePage } from "../page";
+import { TourPage, RestaurantPage, HomePage } from "../page";
 import { path } from "./path";
 const routes = [
   {
@@ -11,6 +10,11 @@ const routes = [
     path: path.tour,
     exact: true,
     component: TourPage,
+  },
+  {
+    path: path.restaurant,
+    exact: true,
+    component: RestaurantPage,
   },
 ];
 const formatRoutes = routes.map((route) => {

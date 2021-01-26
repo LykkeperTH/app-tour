@@ -5,8 +5,7 @@ import {
   SettingOutlined,
 } from "@ant-design/icons";
 
-const CardHome = ({ card }) => {
-  console.log(card);
+const CardRetaurant = ({ cardrataurant }) => {
   const { Meta } = Card;
   return (
     <Card
@@ -28,8 +27,8 @@ const CardHome = ({ card }) => {
         <EllipsisOutlined key="ellipsis" />,
       ]}
     >
-      <Meta title={card.title} description={card.discription} />
+      <Meta title={cardrataurant.name} description={cardrataurant.title} />
     </Card>
   );
 };
-export default CardHome;
+export default CardRetaurant;
