@@ -7,7 +7,7 @@ const routes = [
     component: HomePage,
   },
   {
-    path: path.tour,
+    path: `${path.tour}/:id`,
     exact: true,
     component: TourPage,
   },

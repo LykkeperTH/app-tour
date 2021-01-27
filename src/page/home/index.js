@@ -3,7 +3,7 @@ import Layout from "../../layout";
 import CardHome from "../../views/home/card";
 import Carousel from "react-elastic-carousel";
 import CardRetaurant from "../../views/restaurant/card";
-import { Col, Row } from "antd";
+import { Row } from "antd";
 const HomePage = () => {
   const cards = [
     {
@@ -67,21 +67,27 @@ const HomePage = () => {
   ];
   return (
     <Layout selectedKey={path.home}>
-      <Carousel itemsToShow={3}>
-        {cards.map((card) => (
-          <CardHome key={card.id} card={card} />
-        ))}
-      </Carousel>
-      <Carousel itemsToShow={3}>
-        {cardRetaurant.map((cardrataurant) => {
-          return (
-            <CardRetaurant
-              key={cardrataurant.id}
-              cardrataurant={cardrataurant}
-            />
-          );
-        })}
-      </Carousel>
+      <Row style={{ display: "flex", width: "100%" }}>
+        <h1>แนะนำ</h1>
+        <Carousel itemsToShow={3}>
+          {cards.map((card) => (
+            <CardHome key={card.id} card={card} />
+          ))}
+        </Carousel>
+      </Row>
+      <Row style={{ display: "flex", width: "100%" }}>
+        <h1>ทั่วไป</h1>
+        <Carousel itemsToShow={3}>
+          {cardRetaurant.map((cardrataurant) => {
+            return (
+              <CardRetaurant
+                key={cardrataurant.id}
+                cardrataurant={cardrataurant}
+              />
+            );
+          })}
+        </Carousel>
+      </Row>
     </Layout>
   );
 };
