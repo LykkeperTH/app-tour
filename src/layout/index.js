@@ -20,7 +20,7 @@ const Layout = ({ children, selectedKey }) => {
           onClick={(e) => onClickMenu(e)}
         >
           <Menu.Item key={getUrlKey(path.home)}>หน้าแรก</Menu.Item>
-          {/* <Menu.Item key={getUrlKey(path.tour)}>ท่องเที่ยว</Menu.Item> */}
+          <Menu.Item key={getUrlKey(path.createtour)}>สร้าง</Menu.Item>
         </Menu>
       </Header>
       <Content style={{ padding: "25px 50px" }}>
