@@ -1,4 +1,4 @@
-import { TourPage, RestaurantPage, HomePage, CreateTourPage } from "../page";
+import { TourPage, HomePage, CreateTourPage } from "../page";
 import { path } from "./path";
 const routes = [
   {
@@ -7,14 +7,14 @@ const routes = [
     component: HomePage,
   },
   {
-    path: `${path.tour}/:id`,
+    path: `${path.tour}/:tourId`,
     exact: true,
     component: TourPage,
   },
   {
-    path: path.restaurant,
+    path: path.detialtour,
     exact: true,
-    component: RestaurantPage,
+    component: TourPage,
   },
   {
     path: path.createtour,

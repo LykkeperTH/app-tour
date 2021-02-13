@@ -1,4 +1,4 @@
-const RestaurantPage = () => {
+const DetailTourPage = () => {
   return <div>Test Page</div>;
 };
-export default RestaurantPage;
+export default DetailTourPage;

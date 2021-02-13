@@ -1,6 +1,6 @@
 export const path = {
   home: "/",
   tour: "/tour",
-  restaurant: "/restaurant",
+  detialtour: "/detailtour",
   createtour: "/createtour",
 };
