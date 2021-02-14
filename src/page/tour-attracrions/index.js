@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Layout from "../../layout";
 import { path } from "../../route";
 import { useEffect, useState } from "react";
@@ -8,7 +9,7 @@ import { Skeleton } from "antd";
 const TourPage = () => {
   const [tour, setTour] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const { tourId } = useParams;
+  const { tourId } = useParams();
   useEffect(() => {
     getTourById();
   }, []);

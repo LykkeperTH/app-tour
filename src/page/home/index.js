@@ -1,8 +1,8 @@
+import React from "react";
 import { path } from "../../route";
 import Layout from "../../layout";
 import CardHome from "../../views/home/card";
 import Carousel from "react-elastic-carousel";
-import CardRetaurant from "../../views/restaurant/card";
 import { Row } from "antd";
 import { useEffect, useState } from "react";
 import { TourService } from "../../services";
@@ -38,19 +38,6 @@ const HomePage = () => {
           )}
         </Carousel>
       </Row>
-      {/* <Row style={{ display: "flex", width: "100%" }}>
-        <h1>ทั่วไป</h1>
-        <Carousel itemsToShow={3}>
-          {cardRetaurant.map((cardrataurant) => {
-            return (
-              <CardRetaurant
-                key={cardrataurant.id}
-                cardrataurant={cardrataurant}
-              />
-            );
-          })}
-        </Carousel>
-      </Row> */}
     </Layout>
   );
 };
