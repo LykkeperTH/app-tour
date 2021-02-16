@@ -1,9 +1,4 @@
-import { Card } from "antd";
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+import { Button, Card } from "antd";
 import { Link } from "react-router-dom";
 import { path } from "../../../route";
 
@@ -17,7 +12,7 @@ const CardHome = ({ tour }) => {
           width: 250,
           marginLeft: "14px",
           marginRight: "14px",
-          height: 315,
+          height: 325,
         }}
         cover={
           <img
@@ -26,9 +21,13 @@ const CardHome = ({ tour }) => {
           />
         }
         actions={[
-          <SettingOutlined key="setting" />,
-          <EditOutlined key="edit" />,
-          <EllipsisOutlined key="ellipsis" />,
+          <Link to={`${path.updateTour}/${tour.id}`}>
+            <Button>แก้ไข</Button>
+          </Link>,
+          <Link>รายละเอียด</Link>,
+          <Link>
+            <Button>ลบ</Button>
+          </Link>,
         ]}
       >
         <Meta title={tour.title} description={tour.description} />

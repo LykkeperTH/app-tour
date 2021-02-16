@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 import { Layout as AntLayout, Menu, Row } from "antd";
 import { path } from "../route";
 import { getUrlKey } from "../utils";
-const { Header, Content, Footer } = AntLayout;
+const { Header, Content } = AntLayout;
 const Layout = ({ children, selectedKey }) => {
   const history = useHistory();
   const onClickMenu = ({ key }) => {
@@ -20,7 +20,7 @@ const Layout = ({ children, selectedKey }) => {
           onClick={(e) => onClickMenu(e)}
         >
           <Menu.Item key={getUrlKey(path.home)}>หน้าแรก</Menu.Item>
-          <Menu.Item key={getUrlKey(path.createtour)}>สร้าง</Menu.Item>
+          <Menu.Item key={getUrlKey(path.createTour)}>สร้าง</Menu.Item>
         </Menu>
       </Header>
       <Content style={{ padding: "25px 50px" }}>
@@ -31,9 +31,6 @@ const Layout = ({ children, selectedKey }) => {
           <Row style={{ display: "flex", width: "100%" }}> {children}</Row>
         </div>
       </Content>
-      {/* <Footer style={{ textAlign: "center" }}>
-        Ant Design ©2018 Created by Ant UED
-      </Footer> */}
     </AntLayout>
   );
 };

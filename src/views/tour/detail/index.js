@@ -1,7 +1,7 @@
 import { Card, Col, Row } from "antd";
 import { Carousel } from "react-responsive-carousel";
 
-const VeiwDetailBook = ({ tour }) => {
+const ViewDetailBook = ({ tour }) => {
   return (
     <Row style={{ width: "100%" }}>
       <Col span={24}>
@@ -24,4 +24,4 @@ const VeiwDetailBook = ({ tour }) => {
     </Row>
   );
 };
-export default VeiwDetailBook;
+export default ViewDetailBook;
