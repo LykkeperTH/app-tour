@@ -1,4 +1,6 @@
-import { Button, Input, Form } from "antd";
+import { Button, Input, Form, message } from "antd";
+import Dragger from "antd/lib/upload/Dragger";
+import { InboxOutlined } from "@ant-design/icons";
 
 const TourForm = ({ isLoading, tour, onFinish }) => {
   const [form] = Form.useForm();
@@ -14,6 +16,25 @@ const TourForm = ({ isLoading, tour, onFinish }) => {
   const validateMessages = {
     required: "กรุณากรอกข้อมูล",
   };
+  const props = {
+    name: "file",
+    multiple: true,
+    action: "https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188",
+    onChange(info) {
+      const { status } = info.file;
+      if (status !== "uploading") {
+        console.log(info.file, info.fileList);
+      }
+      if (status === "done") {
+        message.success(`${info.file.name} file uploaded successfully.`);
+      } else if (status === "error") {
+        message.error(`${info.file.name} file upload failed.`);
+      }
+    },
+    onDrop(e) {
+      console.log("Dropped files", e.dataTransfer.files);
+    },
+  };
   return (
     <Form
       {...gridForm}
@@ -23,72 +44,21 @@ const TourForm = ({ isLoading, tour, onFinish }) => {
       initialValues={tour}
       form={form}
     >
-      <Form.Item
-        name="name"
-        label="ชื่อสถานที่/ร้านค้า"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
+      <Form.Item>
+        <Dragger {...props}>
+          <p className="ant-upload-drag-icon">
+            <InboxOutlined />
+          </p>
+          <p className="ant-upload-text">
+            Click or drag file to this area to upload
+          </p>
+          <p className="ant-upload-hint">
+            Support for a single or bulk upload. Strictly prohibited from
+            uploading company data or other banned files.
+          </p>
+        </Dragger>
       </Form.Item>
-      <Form.Item
-        name="title"
-        label="หัวข้อ"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        name="address"
-        label="ที่อยู่/ที่ตั้ง"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        name="lat"
-        label="ละติจูด"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        name="lng"
-        label="ลองติจูด"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        name="description"
-        label="รายละเอียด"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input.TextArea />
-      </Form.Item>
+
       <Form.Item wrapperCol={{ ...gridForm.wrapperCol, offset: 8 }}>
         <Button type="primary" htmlType="submit" loading={isLoading}>
           ตกลง

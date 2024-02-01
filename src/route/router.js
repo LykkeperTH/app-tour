@@ -1,4 +1,4 @@
-import { TourPage, HomePage, CreateTourPage, UpdateTourPage } from "../page";
+import { HomePage, CreateTourPage } from "../page";
 import { path } from "./path";
 const routes = [
   {
@@ -6,25 +6,11 @@ const routes = [
     exact: true,
     component: HomePage,
   },
-  {
-    path: `${path.tour}/:tourId`,
-    exact: true,
-    component: TourPage,
-  },
-  {
-    path: path.detailTour,
-    exact: true,
-    component: TourPage,
-  },
+
   {
     path: path.createTour,
     exact: true,
     component: CreateTourPage,
-  },
-  {
-    path: `${path.updateTour}/:tourId`,
-    exact: true,
-    component: UpdateTourPage,
   },
 ];
 const formatRoutes = routes.map((route) => {
